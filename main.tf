@@ -15,7 +15,7 @@ resource "aws_instance" "terraform" {
   ami           = "ami-055d15d9cfddf7bd3"
   security_groups = ["${aws_security_group.web-sg.name}"]
   instance_type = "t2.micro"
-  key_name 		= "demokey"
+  key_name 		= "AL-Singapore"
 
 
 tags = {
