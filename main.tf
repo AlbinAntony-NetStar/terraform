@@ -17,6 +17,19 @@ resource "aws_instance" "terraform" {
   instance_type = "t2.micro"
   key_name 		= "AL-Singapore"
 
+provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get update",
+      "sudo apt-get install apache2 -y",
+    ]
+
+  }
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    private_key = file("AL-Singapore.pem")
+    host     = "${self.public_ip}"
+  }
 
 tags = {
     Name = "terraform Demo"
