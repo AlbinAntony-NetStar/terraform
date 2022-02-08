@@ -18,6 +18,11 @@ resource "aws_instance" "terraform" {
   key_name 		= "demokey"
 
 
+tags = {
+    Name = "terraform Demo"
+  }
+}  
+
 resource "aws_security_group" "web-sg" {
   name        = "webserver-sg"
   description = "Security group"
